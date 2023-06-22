@@ -1,0 +1,55 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,
+            shrink-to-fit=no">
+
+        <!-- Statically added from here -->
+        <link rel="stylesheet" href="{% static 'bootstrap_css_min.css' %}">
+        <!-- static to here -->
+
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        <div class="container-fluid lead py-3 border-bottom shadow">
+            <div class="container">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">bqtbsb</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">{%if request.user%}Hello, {{request.user}} {%endif%}</a>
+                    </li>
+                    {%block search%}{%endblock%}
+                </ul>
+            </div>
+        </div>
+        {% if messages %}
+        <div class="container" id="ack">
+            <p class="text-center text-danger py-3 bg-info text-dark rounded">
+                {%for msg in messages%}
+                {{msg}}
+                {%endfor%}
+            </p>
+        </div>
+        {%endif%}
+        {% block body %}
+        {% endblock %}
+
+        <script src="{%static 'bootstrap_css_min.css'%}"></script>
+        <script>
+            setTimeout(function(){
+                document.getElementById('ack').innerHTML = ""
+            }, 3000)
+        </script>
+    </body>
+</html>

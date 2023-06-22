@@ -1,0 +1,37 @@
+{%extends 'base.html'%}
+{% block title %}Login | asp {%endblock%}
+{%block body%}
+<div class="row text-center">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <input type="username" name="username" class="form-control"
+                placeholder="Username/Email" required="True">
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-user"></span>
+                </div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <input type="password" name="password" id="pass"
+                class="form-control" placeholder="Password" required="True">
+            <div class="input-group-append">
+                <div class="input-group-text" onclick="togglePass();">
+                    <!-- <span class="fas fa-lock"></span> -->
+                    <span id="pass-toggle">
+                        <i class="fa fa-eye"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <!-- /.col -->
+
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <!-- /.col -->
+        </div>
+    </form>
+</div>
+{%endblock%}

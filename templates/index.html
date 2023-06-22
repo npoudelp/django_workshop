@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %} Home | asp {% endblock %}
+
+{% block body %}
+
+<p class="text-center h3">Form to add users</p><br>
+<div class="container">
+    <!-- <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleInputEmail1">First Name</label>
+            <input type="text" class="form-control" name="first_name"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp" placeholder="First name">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Last Name</label>
+            <input type="text" class="form-control" name="last_name"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp" placeholder="Last name">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Password</label>
+            <input type="password" class="form-control" name="passwd"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" class="form-control" name="email"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp" placeholder="Email">
+        </div>
+
+        <button type="submit" class="btn btn-primary" name="addUser">Submit</button>
+    </form>I -->
+    <!-- <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleInputEmail1"></label>
+            <input type="text" class="form-control" name="title"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp" placeholder="Title for blog...">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Content</label>
+            <textarea name="content" id="exampleInputEmail1" cols="60" rows="10"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" name="addBlog">Submit</button>
+    </form> -->
+    <div class="row">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input type="submit" class="btn btn-outline-dark" value="Send">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

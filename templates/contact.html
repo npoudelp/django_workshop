@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Conatct | asp {%endblock%}
+{%block search%}
+<li class="nav-item">
+  <form action="" method="post">
+    {%csrf_token%}
+    <input type="text" name="key" value="{{key}}" id="">
+    <input type="submit" value="Search">
+  </form>
+</li>
+{%endblock%}
+{%block body%}
+
+
+  
+  <div class="container-fluid mx-5">
+    <div class="row border-bottom py-1 h3">
+      <div class="col"><p class="text-center h3">
+        Available blog details
+      </p></div>
+    </div>
+    {%for blog in blogs%}
+    <div class="row border-bottom py-1 lead">
+      <div class="col-1">
+        {{blog.id}}
+      </div>
+      <div class="col-2">
+        <a href="/view/{{blog.id}}" class="text-decoration-none text-dark">
+          {{blog.title}}
+        </a>
+      </div>
+      <div class="col-2">
+        <img src="{{blog.image.url}}" height="100px" width="150px" alt="" srcset="">
+      </div>
+      <div class="col-2">
+        {{blog.author}}
+      </div>
+      <div class="col-2">
+        {{blog.date}}
+      </div>
+      <div class="col-3">
+        <span class="">
+          <a href="/edit/{{blog.id}}" class="btn btn-outline-primary text-decoration-none">Edit</a>
+        </span>
+        <span class="">
+          <a href="/delete/{{blog.id}}" class="btn btn-outline-danger text-decoration-none">Delete</a>
+        </span>
+      </div>
+    </div>
+    {%endfor%}
+  </div>
+  <br />
+  
+</h3>
+{%endblock%}

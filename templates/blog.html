@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+{%block title%}Blog | asp{% endblock %}
+{% block body %}
+
+
+<div class="container">
+    <div class="row p-3">
+        <img src="{{blog.image.url}}" height="400px" width="100%" alt="no" srcset="">
+    </div>
+    <div class="row h3 py-3">
+        {{blog.title}}
+    </div>
+    <div class="row lead py-3">
+        <pre>{{blog.content}}</pre>
+    </div>
+    <div class="row lead text-secondary py-3">
+        <p class="text-left border-top border-bottom">
+            <span class="">
+                {{blog.author}}
+            </span> |
+            <span class="">
+                {{blog.date}}
+            </span>
+        </p>
+    </div>
+</div>
+<p class="text-warning lead">{{ack}}</p>
+<div class="container">
+    <form action="" method="post" class="text-dark">
+        {% csrf_token %}
+        {{comment.as_p}}
+        <input type="submit" value="Send" name="">
+    </form>
+</div>
+
+{% endblock %}
